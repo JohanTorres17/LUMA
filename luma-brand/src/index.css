@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --navy:      #0D1B2A;
+  --navy-2:    #162236;
+  --navy-3:    #1E3050;
+  --blue:      #2563EB;
+  --blue-lt:   #3B82F6;
+  --blue-pale: #DBEAFE;
+  --white:     #FFFFFF;
+  --off:       #F5F7FA;
+  --off2:      #EEF2F7;
+  --muted:     #6B7A8D;
+  --border:    #DDE3EC;
+  --text:      #1A2738;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TYPOGRAPHY ── */
+.font-display { font-family: 'Cormorant Garamond', serif; }
+.font-mono    { font-family: 'DM Mono', monospace; }
+
+/* ── SECTION BASE ── */
+.brand-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+}
+.brand-section:nth-child(odd)  { background: var(--white); }
+.brand-section:nth-child(even) { background: var(--off); }
+
+.sec-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.2em;
+  color: var(--blue); font-weight: 500;
+  display: block; margin-bottom: 8px;
+}
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; letter-spacing: -0.01em;
+  line-height: 1.05; color: var(--navy);
+  margin-bottom: 12px;
+}
+.sec-title em { font-style: italic; color: var(--blue); }
+.sec-desc {
+  font-size: 1rem; color: var(--muted);
+  font-weight: 300; line-height: 1.7;
+  max-width: 560px;
+}
+
+/* ── LOGO MARK SVG ── */
+.luma-logo-combo {
+  display: flex; align-items: center; gap: 14px;
+}
+.luma-wordmark-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600; letter-spacing: 0.18em; line-height: 1;
+}
+.luma-wordmark-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.55rem; font-weight: 500;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  margin-top: 5px; display: block;
+}
+
+/* ── CARDS ── */
+.brand-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.brand-card:hover {
+  box-shadow: 0 12px 32px rgba(13,27,42,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── BUTTONS ── */
+.btn-brand {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; font-weight: 500;
+  padding: 6px 12px; border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--off); color: var(--navy);
+  cursor: pointer; text-decoration: none;
+  transition: all 0.2s; display: inline-flex;
+  align-items: center; gap: 4px;
+}
+.btn-brand:hover {
+  background: var(--navy); color: #fff;
+  border-color: var(--navy);
+}
+
+/* ── REVEAL ANIMATION ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── TOAST ── */
+.toast-brand {
+  position: fixed; bottom: 28px; left: 50%;
+  transform: translateX(-50%) translateY(60px);
+  background: var(--navy); color: #fff;
+  padding: 10px 22px; border-radius: 100px;
+  font-size: 0.78rem; font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  z-index: 9999; pointer-events: none; opacity: 0;
+}
+.toast-brand.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
